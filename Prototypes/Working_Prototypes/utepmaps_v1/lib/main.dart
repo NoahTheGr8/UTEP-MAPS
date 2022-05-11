@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
         //title: 'UTEP MAPS',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primaryColor: UtepMapsColors.utepBlue_1, fontFamily: 'Montserrat'),
+            primaryColor: UtepMapsColors.utepBlue_1,
+            fontFamily: 'Montserrat-Bold',
+            appBarTheme: AppBarTheme(
+              color: UtepMapsColors.utepBlue_1,
+            )),
         initialRoute: '/home',
         routes: <String, WidgetBuilder>{
           '/home': (BuildContext context) => new Home(),
