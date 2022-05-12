@@ -69,8 +69,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-<<<<<<< HEAD
-=======
   flutter_map:
     dependency: "direct main"
     description:
@@ -78,14 +76,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.0"
->>>>>>> d0a55ee7d84b66eead3dfe60ff66a2cd55cae389
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-=======
   http:
     dependency: transitive
     description:
@@ -114,7 +109,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.1"
->>>>>>> d0a55ee7d84b66eead3dfe60ff66a2cd55cae389
   lints:
     dependency: transitive
     description:
@@ -164,8 +158,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
-<<<<<<< HEAD
-=======
   positioned_tap_detector_2:
     dependency: transitive
     description:
@@ -187,7 +179,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
->>>>>>> d0a55ee7d84b66eead3dfe60ff66a2cd55cae389
   sky_engine:
     dependency: transitive
     description: flutter
@@ -235,9 +226,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.9"
-<<<<<<< HEAD
-  vector_math:
-=======
   transparent_image:
     dependency: transitive
     description:
@@ -274,19 +262,12 @@ packages:
     source: hosted
     version: "2.1.2"
   wkt_parser:
->>>>>>> d0a55ee7d84b66eead3dfe60ff66a2cd55cae389
     dependency: transitive
     description:
       name: wkt_parser
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "2.1.2"
-sdks:
-  dart: ">=2.17.0-0 <3.0.0"
-=======
     version: "2.0.0"
 sdks:
   dart: ">=2.17.0-0 <3.0.0"
   flutter: ">=2.0.0"
->>>>>>> d0a55ee7d84b66eead3dfe60ff66a2cd55cae389
