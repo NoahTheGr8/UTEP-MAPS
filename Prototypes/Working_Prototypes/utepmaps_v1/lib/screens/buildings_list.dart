@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:utepmaps_v1/location_types/building.dart';
+import '../locations.dart';
 
 class buildingsList extends StatefulWidget {
   const buildingsList({Key? key}) : super(key: key);
@@ -8,10 +10,7 @@ class buildingsList extends StatefulWidget {
 }
 
 class buildingsListState extends State<buildingsList> {
-  bool isSelectionMode = false;
-  final int listLength = 30;
-  late List<bool> _selected;
-  bool _selectAll = false;
+  late Locations locations = Locations();
 
   @override
   void initState() {
@@ -20,13 +19,10 @@ class buildingsListState extends State<buildingsList> {
   }
 
   void initializeSelection() {
-    _selected = List<bool>.generate(listLength, (_) => false);
-  }
-
-  @override
-  void dispose() {
-    _selected.clear();
-    super.dispose();
+    Building ccsb = Building("Chemistry and Computer Science", "CCSB");
+    Building bell = Building("Bell Hall", "Bell");
+    locations.buildings.add(ccsb);
+    locations.buildings.add(bell);
   }
 
   @override
@@ -37,97 +33,39 @@ class buildingsListState extends State<buildingsList> {
           title: const Text(
             'Buildings',
           ),
-          leading: isSelectionMode
-              ? IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: () {
-                    setState(() {
-                      isSelectionMode = false;
-                    });
-                    initializeSelection();
-                  },
-                )
-              : const SizedBox(),
-          actions: <Widget>[
-            if (isSelectionMode)
-              TextButton(
-                  child: !_selectAll
-                      ? const Text(
-                          'select all',
-                          style: TextStyle(color: Colors.white),
-                        )
-                      : const Text(
-                          'unselect all',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                  onPressed: () {
-                    _selectAll = !_selectAll;
-                    setState(() {
-                      _selected =
-                          List<bool>.generate(listLength, (_) => _selectAll);
-                    });
-                  }),
-          ],
         ),
         body: ListBuilder(
-          isSelectionMode: isSelectionMode,
-          selectedList: _selected,
-          onSelectionChange: (bool x) {
-            setState(() {
-              isSelectionMode = x;
-            });
-          },
+          buildingList: locations.buildings,
         ));
   }
 }
 
 class ListBuilder extends StatefulWidget {
-  const ListBuilder({
-    Key? key,
-    required this.selectedList,
-    required this.isSelectionMode,
-    required this.onSelectionChange,
-  }) : super(key: key);
+  const ListBuilder({Key? key, required this.buildingList}) : super(key: key);
 
-  final bool isSelectionMode;
-  final List<bool> selectedList;
-  final Function(bool)? onSelectionChange;
+  final List<Building> buildingList;
 
   @override
   State<ListBuilder> createState() => _ListBuilderState();
 }
 
 class _ListBuilderState extends State<ListBuilder> {
-  void _toggle(int index) {
-    if (widget.isSelectionMode) {
-      setState(() {
-        widget.selectedList[index] = !widget.selectedList[index];
-      });
-    }
-  }
+  //Start navigation here if they toggle this tile
+  void _toggle(int index) {}
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: widget.selectedList.length,
-        itemBuilder: (_, int index) {
+        itemCount: widget.buildingList.length,
+        itemBuilder: (context, int index) {
           return ListTile(
-              onTap: () => _toggle(index),
-              onLongPress: () {
-                if (!widget.isSelectionMode) {
-                  setState(() {
-                    widget.selectedList[index] = true;
-                  });
-                  widget.onSelectionChange!(true);
-                }
-              },
-              trailing: widget.isSelectionMode
-                  ? Checkbox(
-                      value: widget.selectedList[index],
-                      onChanged: (bool? x) => _toggle(index),
-                    )
-                  : const SizedBox.shrink(),
-              title: Text('item $index'));
+              leading: Icon(Icons.apartment_sharp),
+              onTap: () => _toggle(
+                  index), //TODO update this to navigate to desired location
+              trailing: const Text('dist from user'),
+              title: Text('${widget.buildingList.elementAt(index).name}'),
+              subtitle: Text(
+                  '${widget.buildingList.elementAt(index).buildingAbbrev}'));
         });
   }
 }
