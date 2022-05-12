@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
             primaryColor: UtepMapsColors.utepBlue_1,
             fontFamily: 'Montserrat-Bold',
             appBarTheme: AppBarTheme(
+              centerTitle: true,
               color: UtepMapsColors.utepBlue_1,
             )),
         initialRoute: '/home',
