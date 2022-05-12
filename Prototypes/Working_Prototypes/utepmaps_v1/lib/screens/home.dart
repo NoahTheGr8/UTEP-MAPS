@@ -1,6 +1,13 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:utepmaps_v1/constants/Theme.dart';
+<<<<<<< HEAD
 // import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+=======
+import 'package:flutter_map/flutter_map.dart';
+import 'buildings_list.dart';
+>>>>>>> d0a55ee7d84b66eead3dfe60ff66a2cd55cae389
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -52,7 +59,10 @@ class Home extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                //Navigator.pop(context);
+
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => buildingsList()));
               },
             ),
             ListTile(
