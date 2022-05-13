@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:utepmaps_v1/location_types/building.dart';
+import 'package:utepmaps_v1/location_types/eatery.dart';
 import '../locations.dart';
 
-class BuildingList extends StatefulWidget {
-  static const String route = 'BuildingList';
+class EateryList extends StatefulWidget {
+  static const String route = 'EateryList';
 
-  const BuildingList({Key? key}) : super(key: key);
+  const EateryList({Key? key}) : super(key: key);
 
   @override
-  BuildingListState createState() => BuildingListState();
+  EateryListState createState() => EateryListState();
 }
 
-class BuildingListState extends State<BuildingList> {
+class EateryListState extends State<EateryList> {
   late Locations locations = Locations();
 
   @override
@@ -21,10 +21,10 @@ class BuildingListState extends State<BuildingList> {
   }
 
   void initializeSelection() {
-    Building ccsb = Building("Chemistry and Computer Science", "CCSB");
-    Building bell = Building("Bell Hall", "Bell");
-    locations.buildings.add(ccsb);
-    locations.buildings.add(bell);
+    Eatery pns = Eatery("Pick 'N' Shovel", "Union East", "Open");
+    Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed");
+    locations.eateries.add(pns);
+    locations.eateries.add(cfa);
   }
 
   @override
@@ -33,19 +33,19 @@ class BuildingListState extends State<BuildingList> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text(
-            'Buildings',
+            'Eateries',
           ),
         ),
         body: ListBuilder(
-          buildingList: locations.buildings,
+          eateryList: locations.eateries,
         ));
   }
 }
 
 class ListBuilder extends StatefulWidget {
-  const ListBuilder({Key? key, required this.buildingList}) : super(key: key);
+  const ListBuilder({Key? key, required this.eateryList}) : super(key: key);
 
-  final List<Building> buildingList;
+  final List<Eatery> eateryList;
 
   @override
   State<ListBuilder> createState() => _ListBuilderState();
@@ -58,16 +58,16 @@ class _ListBuilderState extends State<ListBuilder> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: widget.buildingList.length,
+        itemCount: widget.eateryList.length,
         itemBuilder: (context, int index) {
           return ListTile(
-              leading: Icon(Icons.apartment_sharp),
+              leading: Icon(Icons.fastfood_sharp),
               onTap: () => _toggle(
                   index), //TODO update this to navigate to desired location
               trailing: const Text('dist from user'),
-              title: Text('${widget.buildingList.elementAt(index).name}'),
+              title: Text('${widget.eateryList.elementAt(index).name}'),
               subtitle: Text(
-                  '${widget.buildingList.elementAt(index).buildingAbbrev}'));
+                  '${widget.eateryList.elementAt(index).eateryAbbrev} - ${widget.eateryList.elementAt(index).hours}'));
         });
   }
 }

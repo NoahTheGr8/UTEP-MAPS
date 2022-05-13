@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:utepmaps_v1/location_types/building.dart';
+import 'package:utepmaps_v1/location_types/shuttle_stop.dart';
 import '../locations.dart';
 
-class BuildingList extends StatefulWidget {
-  static const String route = 'BuildingList';
+class ShuttleStopList extends StatefulWidget {
+  static const String route = 'ShuttleStopList';
 
-  const BuildingList({Key? key}) : super(key: key);
+  const ShuttleStopList({Key? key}) : super(key: key);
 
   @override
-  BuildingListState createState() => BuildingListState();
+  ShuttleStopListState createState() => ShuttleStopListState();
 }
 
-class BuildingListState extends State<BuildingList> {
+class ShuttleStopListState extends State<ShuttleStopList> {
   late Locations locations = Locations();
 
   @override
@@ -21,10 +22,11 @@ class BuildingListState extends State<BuildingList> {
   }
 
   void initializeSelection() {
-    Building ccsb = Building("Chemistry and Computer Science", "CCSB");
-    Building bell = Building("Bell Hall", "Bell");
-    locations.buildings.add(ccsb);
-    locations.buildings.add(bell);
+    ShuttleStop west =
+        ShuttleStop("West Shuttle", "Miner-Alley/SunBowl", "Active");
+    ShuttleStop camp = ShuttleStop("Campbell Shuttle", "Mike Loya", "Inactive");
+    locations.shuttleStops.add(west);
+    locations.shuttleStops.add(camp);
   }
 
   @override
@@ -33,19 +35,20 @@ class BuildingListState extends State<BuildingList> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text(
-            'Buildings',
+            'Shuttle Stops',
           ),
         ),
         body: ListBuilder(
-          buildingList: locations.buildings,
+          shuttleStopList: locations.shuttleStops,
         ));
   }
 }
 
 class ListBuilder extends StatefulWidget {
-  const ListBuilder({Key? key, required this.buildingList}) : super(key: key);
+  const ListBuilder({Key? key, required this.shuttleStopList})
+      : super(key: key);
 
-  final List<Building> buildingList;
+  final List<ShuttleStop> shuttleStopList;
 
   @override
   State<ListBuilder> createState() => _ListBuilderState();
@@ -58,16 +61,16 @@ class _ListBuilderState extends State<ListBuilder> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: widget.buildingList.length,
+        itemCount: widget.shuttleStopList.length,
         itemBuilder: (context, int index) {
           return ListTile(
-              leading: Icon(Icons.apartment_sharp),
+              leading: Icon(Icons.bus_alert_sharp),
               onTap: () => _toggle(
                   index), //TODO update this to navigate to desired location
               trailing: const Text('dist from user'),
-              title: Text('${widget.buildingList.elementAt(index).name}'),
+              title: Text('${widget.shuttleStopList.elementAt(index).name}'),
               subtitle: Text(
-                  '${widget.buildingList.elementAt(index).buildingAbbrev}'));
+                  '${widget.shuttleStopList.elementAt(index).shuttleStopAbbrev} - ${widget.shuttleStopList.elementAt(index).status}'));
         });
   }
 }
