@@ -36,6 +36,7 @@ class ShuttleStopListState extends State<ShuttleStopList> {
           centerTitle: true,
           title: const Text(
             'Shuttle Stops',
+            style: const TextStyle(fontFamily: 'Montserrat'),
           ),
         ),
         body: ListBuilder(

@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primaryColor: UtepMapsColors.utepBlue_1,
-            fontFamily: 'Montserrat',
             appBarTheme: AppBarTheme(
               centerTitle: true,
               color: UtepMapsColors.utepBlue_1,

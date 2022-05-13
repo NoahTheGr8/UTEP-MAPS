@@ -40,6 +40,7 @@ class ParkingListState extends State<ParkingList> {
           centerTitle: true,
           title: const Text(
             'Parking',
+            style: const TextStyle(fontFamily: 'Montserrat'),
           ),
         ),
         body: ListBuilder(

@@ -34,6 +34,7 @@ class EateryListState extends State<EateryList> {
           centerTitle: true,
           title: const Text(
             'Eateries',
+            style: const TextStyle(fontFamily: 'Montserrat'),
           ),
         ),
         body: ListBuilder(

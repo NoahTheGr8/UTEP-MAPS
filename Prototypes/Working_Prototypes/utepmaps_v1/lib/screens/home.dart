@@ -32,7 +32,12 @@ class Home extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(
+        title: Text(
+          title,
+          style: const TextStyle(fontFamily: 'Montserrat'),
+        ),
+      ),
       drawer: buildDrawer(context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
