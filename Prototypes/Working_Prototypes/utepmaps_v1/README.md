@@ -10,3 +10,6 @@ This is the first dynamic prototype for UTEP Maps developed with VS Code and Flu
 4. Install an emulator of some sort
 5. Run emulator
 6. Run main.dart in lib folder
+
+## Other changes 
+* Modified flutter file content since flutter 3.0.0 causes issues with location library. Followed this [link](https://github.com/Lyokone/flutterlocation/issues/718) for the fix.
