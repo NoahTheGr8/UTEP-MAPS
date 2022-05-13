@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:utepmaps_v1/location_types/parking.dart';
 import 'package:utepmaps_v1/location_types/shuttle_stop.dart';
-import '../locations.dart';
+import '../location_types/locations.dart';
 
 class ParkingList extends StatefulWidget {
   static const String route = 'ParkingList';

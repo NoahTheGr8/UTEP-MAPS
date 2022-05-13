@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:utepmaps_v1/location_types/eatery.dart';
-import '../locations.dart';
+import '../location_types/locations.dart';
 
 class EateryList extends StatefulWidget {
   static const String route = 'EateryList';

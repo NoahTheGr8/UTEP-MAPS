@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:utepmaps_v1/location_types/building.dart';
-import '../locations.dart';
+import '../location_types/locations.dart';
 
 class BuildingList extends StatefulWidget {
   static const String route = 'BuildingList';
