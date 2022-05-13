@@ -1,6 +1,7 @@
 class Eatery {
   String name; //eatery name like "Pick 'N' Shovel"
-  String buildingAbbrev; //building location of eatery like "EPNG"
+  String eateryAbbrev; //building location of eatery like "EPNG"
+  String hours;
 
-  Eatery(this.name, this.buildingAbbrev);
+  Eatery(this.name, this.eateryAbbrev, this.hours);
 }
