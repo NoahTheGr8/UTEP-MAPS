@@ -1,8 +1,12 @@
-// ignore_for_file: unused_import
-
+//flutter imports
 import 'package:flutter/material.dart';
-import 'package:utepmaps_v1/constants/Theme.dart';
+import 'package:latlong2/latlong.dart';
+
+//map imports
 import 'package:flutter_map/flutter_map.dart';
+
+//imports I created
+import 'package:utepmaps_v1/constants/Theme.dart';
 import 'buildings_list.dart';
 
 class Home extends StatelessWidget {
@@ -16,8 +20,30 @@ class Home extends StatelessWidget {
       appBar: AppBar(title: Text(title)),
 
       //this is where the OSM would be!
-      body: const Center(
-        child: Text('Insert OSM here'),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.zero,
+            ),
+            Flexible(
+              child: FlutterMap(
+                options: MapOptions(
+                  center: LatLng(31.76977,
+                      -106.50493), //this needs to be the users location since they will be the center point
+                  zoom: 13.0,
+                ),
+                layers: [
+                  TileLayerOptions(
+                    urlTemplate:
+                        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
