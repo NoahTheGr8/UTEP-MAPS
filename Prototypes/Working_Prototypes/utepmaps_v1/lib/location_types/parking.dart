@@ -1,7 +1,10 @@
-class Parking {
-  String name; //building name like 'Chemisty and Computer Science Building'
-  String parkingAbbrev; //short hand abbreviation of the building
+import 'location.dart';
+
+//Represents a place to park on campus
+class Parking extends Location {
   bool gateEntry;
 
-  Parking(this.name, this.parkingAbbrev, this.gateEntry);
+  Parking(
+      String name, String locAbbrev, this.gateEntry, double lat, double long)
+      : super(name, locAbbrev, lat, long);
 }

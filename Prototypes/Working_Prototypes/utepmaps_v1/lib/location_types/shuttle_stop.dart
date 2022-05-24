@@ -1,7 +1,9 @@
-class ShuttleStop {
-  String name; //building name like 'Chemisty and Computer Science Building'
-  String shuttleStopAbbrev; //short hand abbreviation of the building
+import 'package:utepmaps_v1/location_types/location.dart';
+
+class ShuttleStop extends Location {
   String status;
 
-  ShuttleStop(this.name, this.shuttleStopAbbrev, this.status);
+  ShuttleStop(
+      String name, String locAbbrev, this.status, double lat, double long)
+      : super(name, locAbbrev, lat, long);
 }

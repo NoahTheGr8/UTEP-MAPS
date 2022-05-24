@@ -1,6 +1,7 @@
-class Building{
-  String name;            //building name like 'Chemisty and Computer Science Building'
-  String buildingAbbrev;  //short hand abbreviation of the building
-  
-  Building(this.name, this.buildingAbbrev);
+import 'location.dart';
+
+//Represents a place to go
+class Building extends Location {
+  Building(String name, String locAbbrev, double lat, double long)
+      : super(name, locAbbrev, lat, long);
 }

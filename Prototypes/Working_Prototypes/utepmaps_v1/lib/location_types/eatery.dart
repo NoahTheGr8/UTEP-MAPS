@@ -1,7 +1,9 @@
-class Eatery {
-  String name; //eatery name like "Pick 'N' Shovel"
-  String eateryAbbrev; //building location of eatery like "EPNG"
+import 'location.dart';
+
+//Represents a place to eat on campus
+class Eatery extends Location {
   String hours;
 
-  Eatery(this.name, this.eateryAbbrev, this.hours);
+  Eatery(String name, String locAbbrev, this.hours, double lat, double long)
+      : super(name, locAbbrev, lat, long);
 }
