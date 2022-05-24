@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:utepmaps_v1/location_types/parking.dart';
-import 'package:utepmaps_v1/location_types/shuttle_stop.dart';
 import '../location_types/locations.dart';
 
 class ParkingList extends StatefulWidget {
@@ -22,15 +21,13 @@ class ParkingListState extends State<ParkingList> {
   }
 
   void initializeSelection() {
-    Parking p1 = Parking("Schuster 4", "SC4", false);
-    Parking p2 = Parking("Schuster 3", "SC3", false);
-    Parking p3 = Parking("Glory Road 1", "GR1", false);
-    Parking p4 = Parking("Oregon 2", "OR2", true);
+    //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
+
+    Parking p1 = Parking("Schuster 4", "SC4", false, 31.76645, -106.50121);
+    Parking p2 = Parking("Oregon 2", "OR2", true, 31.77572, -106.50385);
 
     locations.parking.add(p1);
     locations.parking.add(p2);
-    locations.parking.add(p3);
-    locations.parking.add(p4);
   }
 
   @override
@@ -74,7 +71,7 @@ class _ListBuilderState extends State<ListBuilder> {
               trailing: const Text('dist from user'),
               title: Text('${widget.parkingList.elementAt(index).name}'),
               subtitle: Text(
-                  '${widget.parkingList.elementAt(index).parkingAbbrev} - Entry Gate: ${widget.parkingList.elementAt(index).gateEntry}')); //"Gate entry NOT required"
+                  '${widget.parkingList.elementAt(index).locAbbrev} - Entry Gate: ${widget.parkingList.elementAt(index).gateEntry}')); //"Gate entry NOT required"
         });
   }
 }

@@ -21,8 +21,11 @@ class BuildingListState extends State<BuildingList> {
   }
 
   void initializeSelection() {
-    Building ccsb = Building("Chemistry and Computer Science", "CCSB");
-    Building bell = Building("Bell Hall", "Bell");
+    //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
+
+    Building ccsb = Building(
+        "Chemistry and Computer Science", "CCSB", 31.76797, -106.50219);
+    Building bell = Building("Bell Hall", "Bell", 31.76850, -106.50507);
     locations.buildings.add(ccsb);
     locations.buildings.add(bell);
   }
@@ -67,8 +70,8 @@ class _ListBuilderState extends State<ListBuilder> {
                   index), //TODO update this to navigate to desired location
               trailing: const Text('dist from user'),
               title: Text('${widget.buildingList.elementAt(index).name}'),
-              subtitle: Text(
-                  '${widget.buildingList.elementAt(index).buildingAbbrev}'));
+              subtitle:
+                  Text('${widget.buildingList.elementAt(index).locAbbrev}'));
         });
   }
 }

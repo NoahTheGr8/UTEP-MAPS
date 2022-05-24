@@ -21,8 +21,9 @@ class EateryListState extends State<EateryList> {
   }
 
   void initializeSelection() {
-    Eatery pns = Eatery("Pick 'N' Shovel", "Union East", "Open");
-    Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed");
+    Eatery pns =
+        Eatery("Pick 'N' Shovel", "Union East", "Open", 31.77154, -106.50354);
+    Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed", 31.76784, -106.50575);
     locations.eateries.add(pns);
     locations.eateries.add(cfa);
   }
@@ -68,7 +69,7 @@ class _ListBuilderState extends State<ListBuilder> {
               trailing: const Text('dist from user'),
               title: Text('${widget.eateryList.elementAt(index).name}'),
               subtitle: Text(
-                  '${widget.eateryList.elementAt(index).eateryAbbrev} - ${widget.eateryList.elementAt(index).hours}'));
+                  '${widget.eateryList.elementAt(index).locAbbrev} - ${widget.eateryList.elementAt(index).hours}'));
         });
   }
 }

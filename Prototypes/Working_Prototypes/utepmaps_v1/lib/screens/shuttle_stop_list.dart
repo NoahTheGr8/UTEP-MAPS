@@ -22,9 +22,12 @@ class ShuttleStopListState extends State<ShuttleStopList> {
   }
 
   void initializeSelection() {
+    //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
+
     ShuttleStop west =
-        ShuttleStop("West Shuttle", "Miner-Alley/SunBowl", "Active");
-    ShuttleStop camp = ShuttleStop("Campbell Shuttle", "Mike Loya", "Inactive");
+        ShuttleStop("West Shuttle", "MINALL", "Active", 31.77055, -106.50740);
+    ShuttleStop camp = ShuttleStop(
+        "Campbell Shuttle", "MLOYA", "Inactive", 31.76652, -106.50194);
     locations.shuttleStops.add(west);
     locations.shuttleStops.add(camp);
   }
@@ -71,7 +74,7 @@ class _ListBuilderState extends State<ListBuilder> {
               trailing: const Text('dist from user'),
               title: Text('${widget.shuttleStopList.elementAt(index).name}'),
               subtitle: Text(
-                  '${widget.shuttleStopList.elementAt(index).shuttleStopAbbrev} - ${widget.shuttleStopList.elementAt(index).status}'));
+                  '${widget.shuttleStopList.elementAt(index).locAbbrev} - ${widget.shuttleStopList.elementAt(index).status}'));
         });
   }
 }
