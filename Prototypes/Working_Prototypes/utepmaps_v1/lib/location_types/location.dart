@@ -8,6 +8,7 @@ class Location {
   String locAbbrev; //abbrevieation of location like 'EPNG', 'LIB', or 'MINALL'
   double lat; //latitude of location
   double long; //longitude of location
+  double distFromUser; //longitude of location
 
-  Location(this.name, this.locAbbrev, this.lat, this.long);
+  Location(this.name, this.locAbbrev, this.lat, this.long, this.distFromUser);
 }
