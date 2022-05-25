@@ -2,11 +2,13 @@ import 'package:geolocator/geolocator.dart';
 
 //This class gets the distance from the user and another location
 class DistanceCalculator {
+  //map containing coordinates of the buildings
   Map<String, List> locationMap = {
     "BELL": [31.76850, -106.50507],
     "CCSB": [31.76797, -106.50219]
   };
 
+  //map that updates to values containing distance between user and location - this updates everytime the "Buildings" Screen is pushed to the screen
   Map<String, double> distFromUser = {
     "BELL": -1.0,
     "CCSB": -1.0
@@ -23,7 +25,7 @@ class DistanceCalculator {
     double distanceInMeters = 0;
     double distanceInMiles = 0;
 
-    for (var k in locationMap.keys) {
+    for (String k in locationMap.keys) {
       targetLat = locationMap[k]![0]; //gets latitude of target location
       targetLong = locationMap[k]![1]; //gets longitude of target location
 
@@ -34,6 +36,6 @@ class DistanceCalculator {
       distFromUser[k] = distanceInMiles;
     }
 
-    print("completed distFromUser");
+    print("--------------- completed distFromUser");
   }
 }
