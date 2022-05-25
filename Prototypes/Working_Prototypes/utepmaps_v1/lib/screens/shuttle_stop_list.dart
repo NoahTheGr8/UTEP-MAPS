@@ -21,15 +21,15 @@ class ShuttleStopListState extends State<ShuttleStopList> {
     initializeSelection();
   }
 
-  void initializeSelection() {
+  void initializeSelection() async {
     //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
 
-    ShuttleStop west =
-        ShuttleStop("West Shuttle", "MINALL", "Active", 31.77055, -106.50740);
-    ShuttleStop camp = ShuttleStop(
-        "Campbell Shuttle", "MLOYA", "Inactive", 31.76652, -106.50194);
-    locations.shuttleStops.add(west);
-    locations.shuttleStops.add(camp);
+    // ShuttleStop west =
+    //     ShuttleStop("West Shuttle", "MINALL", "Active", 31.77055, -106.50740);
+    // ShuttleStop camp = ShuttleStop(
+    //     "Campbell Shuttle", "MLOYA", "Inactive", 31.76652, -106.50194);
+    // locations.shuttleStops.add(west);
+    // locations.shuttleStops.add(camp);
   }
 
   @override

@@ -20,12 +20,12 @@ class EateryListState extends State<EateryList> {
     initializeSelection();
   }
 
-  void initializeSelection() {
-    Eatery pns =
-        Eatery("Pick 'N' Shovel", "Union East", "Open", 31.77154, -106.50354);
-    Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed", 31.76784, -106.50575);
-    locations.eateries.add(pns);
-    locations.eateries.add(cfa);
+  void initializeSelection() async {
+    // Eatery pns =
+    //     Eatery("Pick 'N' Shovel", "Union East", "Open", 31.77154, -106.50354);
+    // Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed", 31.76784, -106.50575);
+    // locations.eateries.add(pns);
+    // locations.eateries.add(cfa);
   }
 
   @override

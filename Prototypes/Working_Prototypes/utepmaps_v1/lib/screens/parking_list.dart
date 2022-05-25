@@ -20,14 +20,14 @@ class ParkingListState extends State<ParkingList> {
     initializeSelection();
   }
 
-  void initializeSelection() {
+  void initializeSelection() async {
     //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
 
-    Parking p1 = Parking("Schuster 4", "SC4", false, 31.76645, -106.50121);
-    Parking p2 = Parking("Oregon 2", "OR2", true, 31.77572, -106.50385);
+    // Parking p1 = Parking("Schuster 4", "SC4", false, 31.76645, -106.50121);
+    // Parking p2 = Parking("Oregon 2", "OR2", true, 31.77572, -106.50385);
 
-    locations.parking.add(p1);
-    locations.parking.add(p2);
+    // locations.parking.add(p1);
+    // locations.parking.add(p2);
   }
 
   @override
