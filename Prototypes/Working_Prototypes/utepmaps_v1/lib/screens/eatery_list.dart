@@ -21,11 +21,11 @@ class EateryListState extends State<EateryList> {
   }
 
   void initializeSelection() async {
-    // Eatery pns =
-    //     Eatery("Pick 'N' Shovel", "Union East", "Open", 31.77154, -106.50354);
-    // Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed", 31.76784, -106.50575);
-    // locations.eateries.add(pns);
-    // locations.eateries.add(cfa);
+    Eatery pns =
+        Eatery("Pick 'N' Shovel", "Union East", "Open", 31.77154, -106.50354, 0);
+    Eatery cfa = Eatery("Chick-Fil-A", "EPNG", "Closed", 31.76784, -106.50575, 0);
+    locations.eateries.add(pns);
+    locations.eateries.add(cfa);
   }
 
   @override
@@ -66,7 +66,8 @@ class _ListBuilderState extends State<ListBuilder> {
               leading: Icon(Icons.fastfood_sharp),
               onTap: () => _toggle(
                   index), //TODO update this to navigate to desired location
-              trailing: const Text('dist from user'),
+              trailing: Text(
+                  '${widget.eateryList.elementAt(index).distFromUser.toStringAsFixed(2)} miles away'),
               title: Text('${widget.eateryList.elementAt(index).name}'),
               subtitle: Text(
                   '${widget.eateryList.elementAt(index).locAbbrev} - ${widget.eateryList.elementAt(index).hours}'));

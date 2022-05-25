@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:utepmaps_v1/distance_calculator.dart';
 
 import '../location_types/building.dart';
+import '../distance_calculator.dart';
 import '../location_types/locations.dart';
-import '../location_types/location.dart';
 
 class BuildingList extends StatefulWidget {
   static const String route = 'BuildingList';
@@ -25,6 +24,7 @@ class BuildingListState extends State<BuildingList> {
   }
 
   void initializeSelection() async {
+    // ignore: todo
     //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
 
     // LocationPermission permission = await Geolocator.requestPermission();
@@ -34,16 +34,20 @@ class BuildingListState extends State<BuildingList> {
     //     position); //calculates all distances of all buildings relative to user before showing a list of them
 
     Building ccsb = Building(
-        "Chemistry and Computer Science",
-        "CCSB",
-        31.76797,
-        -106.50219,
-        0); //Building("Chemistry and Computer Science", "CCSB", 31.76797,-106.50219, distCalc.distFromUser["CCSB"]!);
-    Building bell = Building("Bell Hall", "BELL", 31.76850, -106.50507,
-        0); //Building("Bell Hall", "BELL", 31.76850, -106.50507,distCalc.distFromUser["BELL"]!);
+        "Chemistry and Computer Science", "CCSB", 31.76797, -106.50219, 0);
+    Building bell = Building("Bell Hall", "BELL", 31.76850, -106.50507, 0);
+
+    // Building ccsb = Building("Chemistry and Computer Science", "CCSB", 31.76797,
+    //     -106.50219, distCalc.distFromUser["CCSB"]!);
+    //
+    // Building bell = Building("Bell Hall", "BELL", 31.76850, -106.50507,
+    //     distCalc.distFromUser["BELL"]!);
+
     locations.buildings.add(ccsb);
     locations.buildings.add(bell);
+    // ignore: avoid_print
     print("done creating buildings");
+    // ignore: avoid_print
     print(" dist from user >>>> ${ccsb.distFromUser}");
   }
 
@@ -54,7 +58,7 @@ class BuildingListState extends State<BuildingList> {
           centerTitle: true,
           title: const Text(
             'Buildings',
-            style: const TextStyle(fontFamily: 'Montserrat'),
+            style: TextStyle(fontFamily: 'Montserrat'),
           ),
         ),
         body: ListBuilder(
@@ -84,6 +88,7 @@ class _ListBuilderState extends State<ListBuilder> {
           return ListTile(
               leading: const Icon(Icons.apartment_sharp),
               onTap: () => _toggle(
+                  // ignore: todo
                   index), //TODO update this to navigate to desired location
               trailing: Text(
                   '${widget.buildingList.elementAt(index).distFromUser.toStringAsFixed(2)} miles away'),

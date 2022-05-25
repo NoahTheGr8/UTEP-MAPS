@@ -23,11 +23,11 @@ class ParkingListState extends State<ParkingList> {
   void initializeSelection() async {
     //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
 
-    // Parking p1 = Parking("Schuster 4", "SC4", false, 31.76645, -106.50121);
-    // Parking p2 = Parking("Oregon 2", "OR2", true, 31.77572, -106.50385);
+    Parking p1 = Parking("Schuster 4", "SC4", false, 31.76645, -106.50121, 0);
+    Parking p2 = Parking("Oregon 2", "OR2", true, 31.77572, -106.50385, 0);
 
-    // locations.parking.add(p1);
-    // locations.parking.add(p2);
+    locations.parking.add(p1);
+    locations.parking.add(p2);
   }
 
   @override
@@ -68,7 +68,8 @@ class _ListBuilderState extends State<ListBuilder> {
               leading: Icon(Icons.local_parking_outlined),
               onTap: () => _toggle(
                   index), //TODO update this to navigate to desired location
-              trailing: const Text('dist from user'),
+              trailing: Text(
+                  '${widget.parkingList.elementAt(index).distFromUser.toStringAsFixed(2)} miles away'),
               title: Text('${widget.parkingList.elementAt(index).name}'),
               subtitle: Text(
                   '${widget.parkingList.elementAt(index).locAbbrev} - Entry Gate: ${widget.parkingList.elementAt(index).gateEntry}')); //"Gate entry NOT required"

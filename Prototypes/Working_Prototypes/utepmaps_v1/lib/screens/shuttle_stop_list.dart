@@ -24,12 +24,12 @@ class ShuttleStopListState extends State<ShuttleStopList> {
   void initializeSelection() async {
     //TODO - QUERY ALL LOCATIONS FROM DB IN HERE
 
-    // ShuttleStop west =
-    //     ShuttleStop("West Shuttle", "MINALL", "Active", 31.77055, -106.50740);
-    // ShuttleStop camp = ShuttleStop(
-    //     "Campbell Shuttle", "MLOYA", "Inactive", 31.76652, -106.50194);
-    // locations.shuttleStops.add(west);
-    // locations.shuttleStops.add(camp);
+    ShuttleStop west =
+        ShuttleStop("West Shuttle", "MINALL", "Active", 31.77055, -106.50740,0);
+    ShuttleStop camp = ShuttleStop(
+        "Campbell Shuttle", "MLOYA", "Inactive", 31.76652, -106.50194,0);
+    locations.shuttleStops.add(west);
+    locations.shuttleStops.add(camp);
   }
 
   @override
@@ -71,7 +71,8 @@ class _ListBuilderState extends State<ListBuilder> {
               leading: Icon(Icons.bus_alert_sharp),
               onTap: () => _toggle(
                   index), //TODO update this to navigate to desired location
-              trailing: const Text('dist from user'),
+              trailing: Text(
+                  '${widget.shuttleStopList.elementAt(index).distFromUser.toStringAsFixed(2)} miles away'),
               title: Text('${widget.shuttleStopList.elementAt(index).name}'),
               subtitle: Text(
                   '${widget.shuttleStopList.elementAt(index).locAbbrev} - ${widget.shuttleStopList.elementAt(index).status}'));
