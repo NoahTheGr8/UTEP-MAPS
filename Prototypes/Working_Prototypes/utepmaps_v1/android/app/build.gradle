@@ -44,7 +44,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.utepmaps_v1"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 16 //flutter.minSdkVersion <--- update to 16 since flutter icons has an error with commented version
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
